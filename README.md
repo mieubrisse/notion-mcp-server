@@ -1,3 +1,17 @@
+> # 🚨 READ THIS 🚨
+>   
+> This is a fork of [the once-official Notion MCP server](https://github.com/makenotion/notion-mcp-server). The Notion team is no longer maintaining theirs because they're trying to push folks to the remote MCP server.  
+>   
+> Unfortunately, the remote MCP Notion server [disallows databases unless you have the Enterprise plan](https://developers.notion.com/guides/mcp/mcp-supported-tools#notion-query-data-sources). Therefore, I, [mieubrisse](https://github.com/mieubrisse), am maintaining this fork.  
+>   
+> I'm publishing this as a public good since I'm going to fix bugs in my own workflows anyways, but **I don't have time for anything except bugfixes.**
+>   
+> Concretely, this means:
+> - I'll fix my own bugs and publish the here
+> - I'll occasionally review bugfix PRs from other folks
+> - I won't consider features; please don't file them
+
+
 # Notion MCP Server
 
 > [!NOTE]
