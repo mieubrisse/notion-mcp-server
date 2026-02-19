@@ -273,6 +273,10 @@
       "description": "Data source endpoints for querying and managing databases"
     },
     {
+      "name": "Databases",
+      "description": "Endpoints for creating and managing databases"
+    },
+    {
       "name": "Pages",
       "description": "Page endpoints for creating and managing pages"
     },
@@ -1258,7 +1262,7 @@
                   },
                   "initial_data_source": {
                     "type": "object",
-                    "description": "Configuration for the database's initial data source.",
+                    "description": "Configuration for the database's initial data source. Notion databases support multiple data sources (each with their own property schema and rows); this field configures the first one created alongside the database. Note: the create-a-data-source endpoint takes properties at the top level — this endpoint nests them under initial_data_source.",
                     "properties": {
                       "properties": {
                         "type": "object",
