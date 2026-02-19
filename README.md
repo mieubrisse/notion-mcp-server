@@ -10,6 +10,10 @@
 > - I'll fix my own bugs and publish the here
 > - I'll occasionally review bugfix PRs from other folks
 > - I won't consider features; please don't file them
+>
+> **How this fork differs from upstream:**
+>
+> - **`create-a-database` is restored and fixed.** The upstream v2.0.0 migration removed `POST /v1/databases` and replaced it with `POST /v1/data_sources`, but these endpoints do different things in the Notion API 2025-09-03. `POST /v1/data_sources` adds a data source to an _existing_ database — it cannot create new databases. The Notion API returns a hard error if you try. This fork restores `POST /v1/databases` with the correct request schema for 2025-09-03 (properties belong under `initial_data_source.properties`, not at the top level).
 
 
 # Notion MCP Server
