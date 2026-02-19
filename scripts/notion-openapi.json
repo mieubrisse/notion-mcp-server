@@ -2003,7 +2003,7 @@
     "/v1/data_sources": {
       "post": {
         "summary": "Create a data source",
-        "description": "Create a new data source (database)",
+        "description": "Adds an additional data source (with its own property schema and rows) to an existing database. To create a brand-new database, use create-a-database instead.",
         "operationId": "create-a-data-source",
         "tags": [
           "Data sources"
