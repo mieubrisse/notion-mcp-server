@@ -1207,6 +1207,102 @@
         "security": []
       }
     },
+    "/v1/databases": {
+      "post": {
+        "summary": "Create a database",
+        "description": "Creates a new database as a subpage in the specified parent page, with an initial data source whose property schema is defined by initial_data_source.properties. To add a data source to an existing database instead, use create-a-data-source.",
+        "operationId": "create-a-database",
+        "tags": ["Databases"],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/notionVersion"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["parent"],
+                "properties": {
+                  "parent": {
+                    "$ref": "#/components/schemas/pageIdParentRequest"
+                  },
+                  "title": {
+                    "type": "array",
+                    "description": "Name of the database.",
+                    "items": {
+                      "$ref": "#/components/schemas/richTextRequest"
+                    },
+                    "maxItems": 100
+                  },
+                  "description": {
+                    "type": "array",
+                    "description": "Description of the database.",
+                    "items": {
+                      "$ref": "#/components/schemas/richTextRequest"
+                    },
+                    "maxItems": 100
+                  },
+                  "is_inline": {
+                    "type": "boolean",
+                    "description": "Whether the database is displayed inline in its parent page. Defaults to false."
+                  },
+                  "icon": {
+                    "type": "object",
+                    "description": "Icon for the database. Emoji example: {\"type\": \"emoji\", \"emoji\": \"📋\"}. External image example: {\"type\": \"external\", \"external\": {\"url\": \"https://example.com/icon.png\"}}."
+                  },
+                  "cover": {
+                    "type": "object",
+                    "description": "Cover image for the database. External image example: {\"type\": \"external\", \"external\": {\"url\": \"https://example.com/cover.png\"}}."
+                  },
+                  "initial_data_source": {
+                    "type": "object",
+                    "description": "Configuration for the database's initial data source.",
+                    "properties": {
+                      "properties": {
+                        "type": "object",
+                        "description": "Property schema for the initial data source. Keys are property names. Each database must have exactly one 'title' property. Supported types include: title, rich_text, number, select, multi_select, status, date, checkbox, url, email, phone_number, people, files, relation, rollup, formula, created_time, created_by, last_edited_time, last_edited_by. Examples: {\"Name\": {\"title\": {}}, \"Status\": {\"select\": {\"options\": [{\"name\": \"Active\", \"color\": \"green\"}, {\"name\": \"Done\", \"color\": \"blue\"}]}}, \"Due Date\": {\"date\": {}}, \"Count\": {\"number\": {\"format\": \"number\"}}, \"Notes\": {\"rich_text\": {}}, \"Done\": {\"checkbox\": {}}}."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "object": {"type": "string", "example": "error"},
+                    "status": {"type": "integer", "example": 400},
+                    "code": {"type": "string"},
+                    "message": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
     "/v1/pages": {
       "post": {
         "summary": "Create a page",
