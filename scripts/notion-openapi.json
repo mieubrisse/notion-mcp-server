@@ -82,12 +82,17 @@
       "pageIdParentRequest": {
         "type": "object",
         "properties": {
+          "type": {
+            "type": "string",
+            "const": "page_id"
+          },
           "page_id": {
             "type": "string",
             "format": "uuid"
           }
         },
         "required": [
+          "type",
           "page_id"
         ]
       },
@@ -104,6 +109,7 @@
           }
         },
         "required": [
+          "type",
           "database_id"
         ]
       },
